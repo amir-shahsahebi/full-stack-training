@@ -1,8 +1,9 @@
-const { urlencoded } = require("express");
 const express = require("express");
 const logger = require("./middleware/logger");
+const dotenv = require("dotenv");
 
 const app = express();
+dotenv.config();
 
 app.use(logger);
 app.use(express.json()); //built in express middleware
