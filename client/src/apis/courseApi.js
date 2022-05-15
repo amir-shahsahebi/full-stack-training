@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:5500/courses";
+// const baseUrl = "http://localhost:5500/courses";
+const baseUrl = "https://courses-training.herokuapp.com/courses";
 
 export const getAllCourses = async () => {
   try {
