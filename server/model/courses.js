@@ -8,7 +8,7 @@ const CourseSchema = new mongoose.Schema({
   },
   category: String,
   slug: String,
-  authorID: Number,
+  authorId: Number,
 });
 
 // the first argument is the model name and the second one is the schema that we want to build a model on top of.

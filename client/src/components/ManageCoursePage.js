@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
+import { updateCourse } from "../apis/courseApi";
 
 function ManageCoursePage(props) {
   // the useLocation hook is from react-router-dom and is can get the pathname of the url or the state (that has been passed through the Link from the CoursePage component)
   const location = useLocation();
-  console.log(location);
-  
+  // console.log(location);
+  const navigate = useNavigate();
+
   // use for query strings
   const [searchParams] = useSearchParams({});
 
@@ -20,13 +27,17 @@ function ManageCoursePage(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(updatedCourse);
+    // console.log(updatedCourse);
+
+    updateCourse(location.state, updatedCourse);
+
     setUpdatedCourse({
       title: "",
       slug: "",
       authorId: "",
       category: "",
     });
+    navigate("/courses");
   };
 
   return (

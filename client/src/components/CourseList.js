@@ -22,7 +22,7 @@ function CourseList({ courseData }) {
             return (
               <tr key={course._id}>
                 <td>
-                  <Link state={course.id} to={`/course/${course.slug}`}>
+                  <Link state={course._id} to={`/course/${course.slug}`}>
                     {course.title}
                   </Link>
                 </td>
