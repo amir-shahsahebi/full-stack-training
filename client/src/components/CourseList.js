@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { deleteCourse } from "../apis/courseApi";
 
 function CourseList({ courseData }) {
   //   console.log(courseData);
-
+  const navigate = useNavigate();
   return (
     <div>
       <Table striped bordered hover>
@@ -19,7 +20,7 @@ function CourseList({ courseData }) {
         <tbody>
           {courseData?.map((course) => {
             return (
-              <tr key={course.id}>
+              <tr key={course._id}>
                 <td>
                   <Link state={course.id} to={`/course/${course.slug}`}>
                     {course.title}
@@ -30,9 +31,10 @@ function CourseList({ courseData }) {
                 <td>{course.slug}</td>
                 <td>
                   <Button
-                    onClick={() =>
-                      console.log(`${course.title} has been deleted`)
-                    }
+                    onClick={() => {
+                      deleteCourse(course._id);
+                      navigate(0);
+                    }}
                     className="btn btn-danger"
                   >
                     DELETE

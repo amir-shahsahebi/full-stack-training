@@ -31,7 +31,7 @@ export const createCourse = async (course) => {
 
 export const deleteCourse = async (id) => {
   try {
-    const courses = await axios.post(`${baseUrl}/${id}`);
+    const courses = await axios.delete(`${baseUrl}/${id}`);
     return courses;
   } catch (error) {
     console.log(error);

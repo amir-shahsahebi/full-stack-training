@@ -14,7 +14,7 @@ const CoursePage = () => {
 
   useEffect(() => {
     // getAllCourses().then(({ data }) => console.log(data));
-    getAllCourses().then(({ data }) => setCourses(data));
+    getAllCourses().then(({ data }) => setCourses(data.courses));
   }, []);
 
   return (
