@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { createCourse } from "../apis/courseApi";
 
 function CreateCourse(props) {
+  const navigate = useNavigate();
+
   const [courseData, setCourseData] = useState({
     title: "",
     slug: "",
@@ -11,7 +15,9 @@ function CreateCourse(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(courseData);
+    // console.log(courseData);
+    createCourse(courseData);
+    navigate("/courses");
   }
 
   return (
