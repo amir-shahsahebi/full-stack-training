@@ -10,3 +10,30 @@ export const getAllCourses = async () => {
     console.log(error);
   }
 };
+
+export const updateCourse = async (id, course) => {
+  try {
+    const courses = await axios.patch(`${baseUrl}/${id}`, course);
+    return courses;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createCourse = async (course) => {
+  try {
+    const courses = await axios.post(baseUrl, course);
+    return courses;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteCourse = async (id) => {
+  try {
+    const courses = await axios.post(`${baseUrl}/${id}`);
+    return courses;
+  } catch (error) {
+    console.log(error);
+  }
+};
