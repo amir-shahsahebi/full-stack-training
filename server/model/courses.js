@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const CourseSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: [true, "must have course name"],
-    maxlength: [20, "course must have less than 20 characters"],
+    required: [true, "must provide course title"],
+    maxlength: [20, "course must not be more than 20 characters"],
   },
   category: String,
   slug: String,

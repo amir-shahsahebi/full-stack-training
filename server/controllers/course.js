@@ -12,18 +12,18 @@ const getAllCourses = async (req, res) => {
 const getCourse = async (req, res) => {
   try {
     const { id: courseID } = req.params;
-    const cours = await Course.findOne({ _id: courseID });
+    const course = await Course.findOne({ _id: courseID });
     res.status(200).json(course);
   } catch (error) {
     res.status(500).json({ msg: error });
   }
 };
 const createCourse = async (req, res) => {
+  const newCourse = req.body;
   try {
-    const newCourse = req.body;
     // create method post the data to mongoDB
-    const course = await Course.create({ newCourse });
-    res.status(201).json({ msg: course });
+    const course = await Course.create(newCourse);
+    res.status(201).json({ course });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -37,7 +37,7 @@ const updateCourse = async (req, res) => {
       { ...course, _id },
       { new: true }
     );
-    res.status(200).json(updateCourse);
+    res.status(200).json({ updatedCourse });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
