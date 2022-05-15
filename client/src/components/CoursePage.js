@@ -3,17 +3,18 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import CourseList from "./CourseList";
 // import courseData from "./data";
-import { getAllcourses } from "../apis/courseApi";
+import { getAllCourses } from "../apis/courseApi";
 
 const CoursePage = () => {
   //   console.log(courseData);
 
   const navigate = useNavigate();
 
-  const [courses, setSourses] = useState([]);
+  const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    getAllcourses().then(({ data }) => setSourses(data));
+    // getAllCourses().then(({ data }) => console.log(data));
+    getAllCourses().then(({ data }) => setCourses(data));
   }, []);
 
   return (

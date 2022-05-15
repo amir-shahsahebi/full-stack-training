@@ -6,7 +6,7 @@ const CourseSchema = new mongoose.Schema({
     required: [true, "must have course name"],
     maxlength: [20, "course must have less than 20 characters"],
   },
-  categoty: String,
+  category: String,
   slug: String,
   authorID: Number,
 });
